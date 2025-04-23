@@ -1,0 +1,36 @@
+name: Basic Workflow
+
+on:
+    workflow_dispatch: # event, adds a button on default branch
+        inputs:
+            name: 
+                description: "Person to greet"
+                default: "World"
+                required: true
+                type: string
+            city:
+                description: "Favorite city"
+                required: true
+                type: choice
+                options:
+                    - Melbourne
+                    - Sydney
+            colour:
+                description: "Fav colour blue?"
+                required: true
+                type: boolean
+
+jobs:
+    greet: # job
+        name: "Greetings program!"
+        runs-on: # where
+            - ubuntu-latest
+        steps:
+            - name: Send greetings
+              run: |
+                  echo "Hello ${{ github.event.inputs.name }}"
+                  echo "Your favorite city is  ${{ github.event.inputs.city }}"
+                  echo "Is blue fav? ${{ github.event.inputs.colour }}"
+        
+        
+        
