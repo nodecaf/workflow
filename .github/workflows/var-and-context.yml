@@ -1,0 +1,22 @@
+name: Variables and contexts
+
+on:
+    workflow_dispatch:
+        inputs:
+            name:
+                description: "Person to greet"
+                default: "World"
+                required: true
+env:
+    VAR1: myworkflowvar1
+    VAR2: myworkflowvar2
+    VAR3: myworkflowvar3
+jobs:
+    job-1:
+        name: Job 1
+        runs-on: ubuntu-latest
+        steps:
+            - name: Dump GH context
+              env:
+                GH_CONTEXT: ${{ github | toJson() }}
+              run: echo $GH_CONTEXT
