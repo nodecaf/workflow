@@ -1,0 +1,26 @@
+name: PR Build Test
+
+on: 
+    pull_request:
+        branches:
+            - main
+
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+    tellmeajoke:
+        runs-on: ubuntu-latest
+        steps:
+        # Get the joke
+          - id: myjoke
+            uses: mickeygoussetorg/get-a-dad-joke@v1
+        # Use the joke output in another step
+          - name: Output Dad Joke
+            run: echo "${{ steps.myjoke.outputs.dad-joke }}"
+    
