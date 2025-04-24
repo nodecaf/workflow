@@ -19,4 +19,4 @@ jobs:
             - name: Dump GH context
               env:
                 GH_CONTEXT: ${{ toJson(github) }}
-              run: echo $GH_CONTEXT
+              run: echo $GH_CONTEXT | jq "."
