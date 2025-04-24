@@ -10,7 +10,7 @@ on:
 jobs:
     job-1:
         name: Job 1
-        runs-on: ubuntu-lates
+        runs-on: ubuntu-latest
         steps:
             - name: Output job 1
               run: |
