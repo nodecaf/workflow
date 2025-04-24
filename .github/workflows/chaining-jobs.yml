@@ -5,6 +5,7 @@ on:
         inputs:
             run-job-3:
                 description: "Run job 3"
+                default: true
                 required: true
                 type: boolean
 jobs:
@@ -37,7 +38,7 @@ jobs:
 
     job-4:
         name: Job 4
-        runs-on: unbuntu-latest
+        runs-on: ubuntu-latest
         needs:
             - job-2
             - job-3
